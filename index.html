@@ -112,7 +112,9 @@ section.cv > h2::after {
 }
 .entry:first-of-type { border-top: 0; padding-top: 0; }
 .entry h3 { margin: 0; font-size: 18px; }
-.entry .sub { margin: 2px 0 0; font-weight: 600; }
+.entry h3 a { color: inherit; }
+.entry h3 a:hover { color: var(--accent); }
+.entry .sub { margin: 2px 0 0; font-size: 17px; font-weight: 600; color: var(--accent); }
 .entry .note { margin: 2px 0 0; color: var(--muted); }
 .entry .meta { text-align: right; color: var(--muted); font-size: 15px; white-space: nowrap; }
 .entry ul { grid-column: 1 / -1; margin: 6px 0 0; padding-left: 1.2em; }

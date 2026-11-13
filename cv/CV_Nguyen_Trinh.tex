@@ -1,0 +1,129 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[margin=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.96]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{cvblue}{HTML}{075AA5}
+\pagestyle{empty}
+\hbadness=10000
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.2em,label=\textbullet,itemsep=1pt,topsep=2pt,parsep=0pt,partopsep=0pt}
+
+\newcommand{\cvsection}[1]{%
+  \vspace{4pt}%
+  {\color{cvblue}\fontsize{14}{16}\selectfont\bfseries #1}\par
+  \vspace{-2pt}{\color{cvblue}\rule{0.28\linewidth}{0.6pt}}\par\vspace{1pt}
+}
+
+\newcommand{\cventry}[3]{%
+  \textbf{#1}\hfill\textbf{#2}\par
+  {\normalfont\color{black}#3}\par
+}
+
+\newcommand{\projectentry}[3]{%
+  \textbf{#1}\hfill\textbf{#2}\par
+  \begin{itemize}#3\end{itemize}
+}
+
+\newcommand{\educationentry}[4]{%
+  \textbf{#1}\hfill\textbf{#2}\par
+  {\normalfont\color{black}#3}\par
+  {\normalfont\color{black}#4}\par
+}
+
+\begin{document}
+\normalsize
+
+\begin{minipage}[c]{0.77\textwidth}
+  {\color{cvblue}\fontsize{22}{24}\selectfont\bfseries NGUYEN TRINH}\par
+  \vspace{1pt}
+  {\fontsize{12}{14}\selectfont Stage de 4 à 6 mois - Actuariat et suivi des risques}\par
+  \vspace{4pt}
+  \faEnvelope\ \href{mailto:nguyenduckhanhtrinh@gmail.com}{nguyenduckhanhtrinh@gmail.com}
+  \quad \faPhone\ +33 7 43 59 27 18\par
+  \vspace{2pt}
+  \faMapMarker*\ Lyon, France
+  \quad \faLinkedin\ \href{https://www.linkedin.com/in/trinhquant/}{linkedin.com/in/trinhquant}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.19\textwidth}
+  \centering
+  \begin{tikzpicture}
+    \clip (0,0) circle (1.2cm);
+    \IfFileExists{IMG_8415.png}%
+      {\node at (0,0) {\includegraphics[width=2.4cm]{IMG_8415.png}};}%
+      {\fill[cvblue!12] (0,0) circle (1.2cm); \node[cvblue,font=\bfseries\Large] at (0,0) {NT};}
+    \draw[cvblue,line width=1pt] (0,0) circle (1.2cm);
+  \end{tikzpicture}
+\end{minipage}
+\par\vspace{3pt}
+
+\cvsection{Profil}
+Étudiant en Master 2 Actuariat à l'ISFA, je recherche un stage en actuariat et suivi des risques. Mes projets portent sur la tarification IARD, le provisionnement, l'ALM et Solvabilité II. Je souhaite contribuer à l'analyse des résultats, au suivi des indicateurs et à la formulation de recommandations claires.
+
+\cvsection{Formation}
+\educationentry
+  {Master 2 en Sciences Actuarielles}
+  {2024 - présent}
+  {Institut de Science Financière et d'Assurances (ISFA) - Université Lyon 1, Lyon}
+  {Tarification, provisionnement, GLM, Solvabilité II, ALM et statistiques.}
+\vspace{1pt}
+\educationentry
+  {Licence en Économie Mathématique}
+  {2021 - 2023}
+  {National Economics University, Hanoï}
+  {GPA : 3,8/4,0 - Probabilités, économétrie et mathématiques financières.}
+
+\cvsection{Expériences professionnelles}
+\cventry{Fondateur - \href{https://lissenne.com/}{Lissenne}}{2026 - présent}{Plateforme d'apprentissage des langues}
+\begin{itemize}
+  \item Suivi des indicateurs d'acquisition, d'activation et de conversion ; priorisation des évolutions produit.
+\end{itemize}
+\vspace{1pt}
+\cventry{Chercheur quantitatif - WorldQuant BRAIN}{2022 - 2025}{Analyse statistique et validation de modèles}
+\begin{itemize}
+  \item 500+ signaux validés hors échantillon (Sharpe supérieur à 1,8) ; 1\textsuperscript{er} au Global Alphathon (14\,000+ participants).
+  \item Pipeline Python automatisé : temps de recherche réduit de 90\% et performance hors échantillon améliorée de 80\%.
+\end{itemize}
+
+\cvsection{Projets actuariels}
+\projectentry{\href{https://talyxion.com/labs/alm/}{\textcolor{cvblue}{ALM - Allocation stratégique d'un portefeuille de rentes}}}{2026}{
+  \item Allocation de 2\,000 rentes (100\,M€) selon le compromis rendement/SCR de Solvabilité II.
+  \item Projection des passifs et analyse du SCR de marché.
+}
+\vspace{1pt}
+\projectentry{\href{https://talyxion.com/labs/reins/}{\textcolor{cvblue}{Tarification de réassurance et pertes CAT}}}{2026}{
+  \item Tarification XL/Stop-Loss ; modélisation EVT/Pareto des pertes de grêle et d'inondation.
+  \item 100\,000 simulations Monte Carlo pour estimer les pertes et comparer RoRAC/RoE.
+}
+\vspace{1pt}
+\projectentry{\href{https://talyxion.com/labs/nonlife/}{\textcolor{cvblue}{Tarification non-vie et provisionnement}}}{2025}{
+  \item GLM fréquence-sévérité (Poisson, Gamma, Tweedie) pour des portefeuilles auto.
+  \item Chain-Ladder, Bornhuetter-Ferguson, Mack, ODP et Bootstrap pour mesurer l'incertitude des provisions.
+}
+
+\cvsection{Compétences}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}p{0.2\linewidth}X@{}}
+Actuariat & Tarification IARD, provisionnement, ALM, SCR, réassurance \\
+Analyse & Rentabilité, suivi d'indicateurs, tableaux de bord, recommandations \\
+Outils & Excel/VBA, Power BI, Python, R, SQL, PowerPoint \\
+Langues & Français B2, anglais C1, vietnamien langue maternelle \\
+Atouts & Rigueur, autonomie, esprit d'analyse et travail en équipe
+\end{tabularx}
+
+\vspace{2pt}
+\textbf{Distinction :} 1\textsuperscript{er} mondial - WorldQuant Global Alphathon 2022
+
+\end{document}

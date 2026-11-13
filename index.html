@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nguyen Trinh – Curriculum Vitae</title>
+<meta name="description" content="CV de Nguyen Trinh, étudiant en Master 2 Actuariat à l'ISFA - stage en actuariat et suivi des risques.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --surface: #f5f8fc;
+  --text: #1d2733;
+  --muted: #5b6776;
+  --line: #dde4ec;
+  --accent: #075aa5;
+  --accent-soft: #e6eff8;
+  --nav-bg: #0b2a4a;
+  --nav-text: #e8eef5;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1620; --surface: #16202c; --text: #e3e9f0; --muted: #9aa8b8;
+    --line: #253244; --accent: #6aa9e8; --accent-soft: #1b2c40;
+    --nav-bg: #0a111a; --nav-text: #e3e9f0;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1620; --surface: #16202c; --text: #e3e9f0; --muted: #9aa8b8;
+  --line: #253244; --accent: #6aa9e8; --accent-soft: #1b2c40;
+  --nav-bg: #0a111a; --nav-text: #e3e9f0;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.55 "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Navbar */
+.nav { background: var(--nav-bg); color: var(--nav-text); }
+.nav-inner {
+  max-width: 960px; margin: 0 auto; padding: 12px 16px;
+  display: flex; align-items: center; gap: 20px;
+}
+.nav-brand { color: var(--nav-text); font-weight: 700; font-size: 18px; }
+.nav-links { display: flex; gap: 18px; margin-left: auto; font-size: 15px; }
+.nav-links a { color: var(--nav-text); opacity: .85; }
+.nav-links a:hover { opacity: 1; text-decoration: none; }
+.theme-toggle {
+  background: none; border: 1px solid rgba(255,255,255,.3); color: var(--nav-text);
+  border-radius: 6px; padding: 3px 9px; cursor: pointer; font: inherit; font-size: 14px;
+}
+
+/* Page */
+.page { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+
+.hero {
+  display: flex; align-items: center; gap: 32px;
+  padding-bottom: 28px; border-bottom: 1px solid var(--line);
+}
+.hero-copy { flex: 1; min-width: 0; }
+.eyebrow {
+  margin: 0 0 4px; color: var(--accent); font-weight: 600;
+  text-transform: uppercase; letter-spacing: .08em; font-size: 13px;
+}
+.hero h1 { margin: 0; font-size: 40px; line-height: 1.15; color: var(--accent); }
+.hero .role { margin: 6px 0 14px; font-size: 19px; color: var(--muted); }
+.contact { display: flex; flex-wrap: wrap; gap: 6px 20px; margin: 0; padding: 0; list-style: none; font-size: 15px; }
+.contact li { display: flex; align-items: center; gap: 7px; }
+.contact svg { width: 15px; height: 15px; fill: var(--accent); flex: none; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.btn {
+  display: inline-block; padding: 8px 16px; border-radius: 6px; font-size: 15px; font-weight: 600;
+  border: 1px solid var(--accent); color: var(--accent);
+}
+.btn:hover { text-decoration: none; background: var(--accent-soft); }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent); filter: brightness(1.1); }
+
+.photo {
+  width: 150px; height: 150px; border-radius: 50%; flex: none;
+  border: 3px solid var(--accent); overflow: hidden; background: var(--accent-soft);
+  display: grid; place-items: center; color: var(--accent); font-size: 44px; font-weight: 700;
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo:has(img) span { display: none; }
+
+/* Sections */
+section.cv { margin-top: 34px; }
+section.cv > h2 {
+  margin: 0 0 16px; font-size: 22px; color: var(--accent);
+  padding-bottom: 6px; position: relative;
+}
+section.cv > h2::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 56px; height: 2px; background: var(--accent);
+}
+.lead { margin: 0; max-width: 72ch; }
+
+.entry {
+  display: grid; grid-template-columns: 1fr auto; gap: 4px 24px;
+  padding: 14px 0; border-top: 1px solid var(--line);
+}
+.entry:first-of-type { border-top: 0; padding-top: 0; }
+.entry h3 { margin: 0; font-size: 18px; }
+.entry .sub { margin: 2px 0 0; font-weight: 600; }
+.entry .note { margin: 2px 0 0; color: var(--muted); }
+.entry .meta { text-align: right; color: var(--muted); font-size: 15px; white-space: nowrap; }
+.entry ul { grid-column: 1 / -1; margin: 6px 0 0; padding-left: 1.2em; }
+.entry li { margin: 2px 0; }
+.entry li::marker { color: var(--accent); }
+.ext::after { content: " ↗"; font-size: .85em; }
+
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px 28px; }
+.skill-group h3 { margin: 0 0 8px; font-size: 16px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chips li {
+  background: var(--accent-soft); color: var(--text); border-radius: 999px;
+  padding: 3px 11px; font-size: 14px;
+}
+
+.award { margin: 0; }
+.award strong { display: block; }
+.award span { color: var(--muted); }
+
+footer {
+  max-width: 960px; margin: 0 auto; padding: 20px 16px 32px;
+  color: var(--muted); font-size: 14px; border-top: 1px solid var(--line);
+}
+
+@media (max-width: 640px) {
+  .page { padding-top: 28px; }
+  .hero { flex-direction: column-reverse; align-items: flex-start; gap: 20px; }
+  .hero h1 { font-size: 32px; }
+  .photo { width: 110px; height: 110px; font-size: 34px; }
+  .entry { grid-template-columns: 1fr; }
+  .entry .meta { text-align: left; white-space: normal; order: -1; font-size: 14px; }
+  .nav-links { display: none; }
+  .theme-toggle { margin-left: auto; }
+}
+
+@media print {
+  @page { size: A4; margin: 10mm 12mm; }
+  :root { --text: #111; --muted: #444; --line: #dde4ec; --accent: #075aa5; --accent-soft: #e6eff8; }
+  .nav, .actions, footer, .theme-toggle, .eyebrow { display: none !important; }
+  body { font-size: 9.5pt; line-height: 1.3; background: #fff; color: #000; }
+  .lead { max-width: none; }
+  .entry ul { padding-left: 1.1em; }
+  .page { padding: 0; max-width: none; }
+  .hero { padding-bottom: 8px; gap: 16px; }
+  .hero h1 { font-size: 22pt; }
+  .hero .role { font-size: 11pt; margin: 2px 0 6px; }
+  .contact { font-size: 9pt; }
+  .photo { width: 88px; height: 88px; font-size: 26px; }
+  section.cv { margin-top: 9px; }
+  section.cv > h2 { font-size: 12.5pt; margin-bottom: 5px; padding-bottom: 3px; }
+  .entry { break-inside: avoid; padding: 4px 0; border-top: 0; }
+  .entry h3 { font-size: 10pt; }
+  .entry .sub, .entry .note { margin: 0; }
+  .entry .meta { font-size: 9pt; }
+  .entry ul { margin-top: 2px; }
+  .entry li { margin: 0; }
+  .skills { grid-template-columns: repeat(3, 1fr); gap: 6px 16px; }
+  .skill-group h3 { font-size: 9.5pt; margin-bottom: 3px; }
+  .chips { gap: 3px; }
+  .chips li { font-size: 8.5pt; padding: 1px 7px; }
+  .ext::after { content: ""; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Navigation">
+  <div class="nav-inner">
+    <a class="nav-brand" href="./">Nguyen Trinh</a>
+    <div class="nav-links">
+      <a href="#formation">Formation</a>
+      <a href="#experiences">Expériences</a>
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+    </div>
+    <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Changer le thème">◐</button>
+  </div>
+</nav>
+
+<main class="page">
+
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">Curriculum Vitae</p>
+      <h1>Nguyen Trinh</h1>
+      <p class="role">Stage de 4 à 6 mois - Actuariat et suivi des risques</p>
+      <ul class="contact">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7H4zm16 2.8-8 5-8-5V17h16V9.8z"/></svg>
+          <a href="mailto:nguyenduckhanhtrinh@gmail.com">nguyenduckhanhtrinh@gmail.com</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1L6.6 10.8z"/></svg>
+          <a href="tel:+33743592718">+33 7 43 59 27 18</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+          Lyon, France
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11z"/></svg>
+          <a href="https://www.linkedin.com/in/trinhquant/">linkedin.com/in/trinhquant</a>
+        </li>
+      </ul>
+      <div class="actions">
+        <a class="btn btn-primary" href="cv/CV_Nguyen_Trinh.pdf">Télécharger le CV (PDF)</a>
+        <a class="btn" href="https://www.linkedin.com/in/trinhquant/">Profil LinkedIn</a>
+      </div>
+    </div>
+    <div class="photo" aria-hidden="true">
+      <img src="assets/photo.jpg" alt="" onerror="this.remove()"><span>NT</span>
+    </div>
+  </header>
+
+  <section class="cv" id="profil">
+    <h2>Profil</h2>
+    <p class="lead">Étudiant en Master 2 Actuariat à l'ISFA, je recherche un stage en actuariat et suivi des risques. Mes projets portent sur la tarification IARD, le provisionnement, l'ALM et Solvabilité II. Je souhaite contribuer à l'analyse des résultats, au suivi des indicateurs et à la formulation de recommandations claires.</p>
+  </section>
+
+  <section class="cv" id="formation">
+    <h2>Formation</h2>
+    <div class="entry">
+      <div>
+        <h3>Institut de Science Financière et d'Assurances (ISFA) - Université Lyon 1</h3>
+        <p class="sub">Master 2 en Sciences Actuarielles</p>
+        <p class="note">Tarification, provisionnement, GLM, Solvabilité II, ALM et statistiques.</p>
+      </div>
+      <div class="meta">2024 - présent<br>Lyon, France</div>
+    </div>
+    <div class="entry">
+      <div>
+        <h3>National Economics University</h3>
+        <p class="sub">Licence en Économie Mathématique</p>
+        <p class="note">GPA : 3,8/4,0 - Probabilités, économétrie et mathématiques financières.</p>
+      </div>
+      <div class="meta">2021 - 2023<br>Hanoï, Vietnam</div>
+    </div>
+  </section>
+
+  <section class="cv" id="experiences">
+    <h2>Expériences professionnelles</h2>
+    <div class="entry">
+      <div>
+        <h3><a class="ext" href="https://lissenne.com/">Lissenne</a></h3>
+        <p class="sub">Fondateur</p>
+        <p class="note">Plateforme d'apprentissage des langues</p>
+      </div>
+      <div class="meta">2026 - présent</div>
+      <ul>
+        <li>Suivi des indicateurs d'acquisition, d'activation et de conversion ; priorisation des évolutions produit.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div>
+        <h3>WorldQuant BRAIN</h3>
+        <p class="sub">Chercheur quantitatif</p>
+        <p class="note">Analyse statistique et validation de modèles</p>
+      </div>
+      <div class="meta">2022 - 2025</div>
+      <ul>
+        <li>500+ signaux validés hors échantillon (Sharpe supérieur à 1,8) ; 1<sup>er</sup> au Global Alphathon (14&nbsp;000+ participants).</li>
+        <li>Pipeline Python automatisé : temps de recherche réduit de 90&nbsp;% et performance hors échantillon améliorée de 80&nbsp;%.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cv" id="projets">
+    <h2>Projets actuariels</h2>
+    <div class="entry">
+      <div>
+        <h3><a class="ext" href="https://talyxion.com/labs/alm/">ALM - Allocation stratégique d'un portefeuille de rentes</a></h3>
+      </div>
+      <div class="meta">2026</div>
+      <ul>
+        <li>Allocation de 2&nbsp;000 rentes (100&nbsp;M€) selon le compromis rendement/SCR de Solvabilité II.</li>
+        <li>Projection des passifs et analyse du SCR de marché.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div>
+        <h3><a class="ext" href="https://talyxion.com/labs/reins/">Tarification de réassurance et pertes CAT</a></h3>
+      </div>
+      <div class="meta">2026</div>
+      <ul>
+        <li>Tarification XL/Stop-Loss ; modélisation EVT/Pareto des pertes de grêle et d'inondation.</li>
+        <li>100&nbsp;000 simulations Monte Carlo pour estimer les pertes et comparer RoRAC/RoE.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div>
+        <h3><a class="ext" href="https://talyxion.com/labs/nonlife/">Tarification non-vie et provisionnement</a></h3>
+      </div>
+      <div class="meta">2025</div>
+      <ul>
+        <li>GLM fréquence-sévérité (Poisson, Gamma, Tweedie) pour des portefeuilles auto.</li>
+        <li>Chain-Ladder, Bornhuetter-Ferguson, Mack, ODP et Bootstrap pour mesurer l'incertitude des provisions.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cv" id="distinctions">
+    <h2>Distinction</h2>
+    <p class="award"><strong>1<sup>er</sup> mondial - WorldQuant Global Alphathon 2022</strong><span>14&nbsp;000+ participants</span></p>
+  </section>
+
+  <section class="cv" id="competences">
+    <h2>Compétences</h2>
+    <div class="skills">
+      <div class="skill-group">
+        <h3>Actuariat</h3>
+        <ul class="chips"><li>Tarification IARD</li><li>Provisionnement</li><li>ALM</li><li>SCR</li><li>Réassurance</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Analyse</h3>
+        <ul class="chips"><li>Rentabilité</li><li>Suivi d'indicateurs</li><li>Tableaux de bord</li><li>Recommandations</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Outils</h3>
+        <ul class="chips"><li>Excel/VBA</li><li>Power BI</li><li>Python</li><li>R</li><li>SQL</li><li>PowerPoint</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Langues</h3>
+        <ul class="chips"><li>Vietnamien - langue maternelle</li><li>Anglais - C1</li><li>Français - B2</li></ul>
+      </div>
+      <div class="skill-group">
+        <h3>Atouts</h3>
+        <ul class="chips"><li>Rigueur</li><li>Autonomie</li><li>Esprit d'analyse</li><li>Travail en équipe</li></ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Nguyen Trinh</footer>
+
+<script src="assets/theme.js"></script>
+</body>
+</html>

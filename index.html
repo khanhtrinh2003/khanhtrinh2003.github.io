@@ -60,6 +60,15 @@ html { scroll-behavior: smooth; scroll-padding-top: 64px; }
   border-radius: 6px; padding: 3px 9px; cursor: pointer; font: inherit; font-size: 14px;
 }
 
+
+.lang-toggle { display: flex; margin-left: 4px; border: 1px solid rgba(255,255,255,.3); border-radius: 6px; overflow: hidden; }
+.lang-toggle button {
+  background: none; border: 0; color: var(--nav-text); font: inherit; font-size: 13px; font-weight: 600;
+  padding: 3px 10px; cursor: pointer; opacity: .7;
+}
+.lang-toggle button[aria-pressed="true"] { background: rgba(255,255,255,.18); opacity: 1; }
+.lang-toggle button:focus-visible, .theme-toggle:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
 /* Page */
 .page { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
 
@@ -148,7 +157,7 @@ footer {
   .entry .meta { text-align: left; white-space: normal; order: -1; font-size: 14px; }
   html { scroll-padding-top: 96px; }
   .nav-inner { flex-wrap: wrap; gap: 6px 12px; padding: 10px 16px; }
-  .theme-toggle { margin-left: auto; }
+  .lang-toggle { margin-left: auto; }
   .nav-links {
     order: 3; width: 100%; margin-left: 0; gap: 16px; font-size: 14px;
     overflow-x: auto; white-space: nowrap; scrollbar-width: none; padding-bottom: 2px;
@@ -159,7 +168,7 @@ footer {
 @media print {
   @page { size: A4; margin: 10mm 12mm; }
   :root { --text: #111; --muted: #444; --line: #dde4ec; --accent: #075aa5; --accent-soft: #e6eff8; }
-  .nav, .actions, footer, .theme-toggle, .eyebrow { display: none !important; }
+  .nav, .actions, footer, .theme-toggle, .lang-toggle, .eyebrow { display: none !important; }
   body { font-size: 9.5pt; line-height: 1.3; background: #fff; color: #000; }
   .lead { max-width: none; }
   .entry ul { padding-left: 1.1em; }
@@ -191,10 +200,14 @@ footer {
   <div class="nav-inner">
     <a class="nav-brand" href="./">Nguyen Trinh</a>
     <div class="nav-links">
-      <a href="#formation">Formation</a>
-      <a href="#experiences">Expériences</a>
-      <a href="#projets">Projets</a>
-      <a href="#competences">Compétences</a>
+      <a href="#formation" data-en="Education">Formation</a>
+      <a href="#experiences" data-en="Experience">Expériences</a>
+      <a href="#projets" data-en="Projects">Projets</a>
+      <a href="#competences" data-en="Skills">Compétences</a>
+    </div>
+    <div class="lang-toggle" role="group" aria-label="Language / Langue">
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="fr" aria-pressed="true">FR</button>
     </div>
     <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Changer le thème">◐</button>
   </div>
@@ -206,7 +219,7 @@ footer {
     <div class="hero-copy">
       <p class="eyebrow">Curriculum Vitae</p>
       <h1>Nguyen Trinh</h1>
-      <p class="role">Stage de 4 à 6 mois - Actuariat et suivi des risques</p>
+      <p class="role" data-en="4-6 month internship - Actuarial work and risk monitoring">Stage de 4 à 6 mois - Actuariat et suivi des risques</p>
       <ul class="contact">
         <li>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5h20v14H2V5zm2 2v.5l8 5 8-5V7H4zm16 2.8-8 5-8-5V17h16V9.8z"/></svg>
@@ -226,8 +239,8 @@ footer {
         </li>
       </ul>
       <div class="actions">
-        <a class="btn btn-primary" href="cv/CV_Nguyen_Trinh.pdf">Télécharger le CV (PDF)</a>
-        <a class="btn" href="https://www.linkedin.com/in/trinhquant/">Profil LinkedIn</a>
+        <a class="btn btn-primary" href="cv/CV_Nguyen_Trinh.pdf" data-href-en="cv/CV_Nguyen_Trinh_EN.pdf" data-en="Download CV (PDF)">Télécharger le CV (PDF)</a>
+        <a class="btn" href="https://www.linkedin.com/in/trinhquant/" data-en="LinkedIn profile">Profil LinkedIn</a>
       </div>
     </div>
     <div class="photo" aria-hidden="true">
@@ -236,118 +249,118 @@ footer {
   </header>
 
   <section class="cv" id="profil">
-    <h2>Profil</h2>
-    <p class="lead">Étudiant en Master 2 Actuariat à l'ISFA, je recherche un stage en actuariat et suivi des risques. Mes projets portent sur la tarification IARD, le provisionnement, l'ALM et Solvabilité II. Je souhaite contribuer à l'analyse des résultats, au suivi des indicateurs et à la formulation de recommandations claires.</p>
+    <h2 data-en="Profile">Profil</h2>
+    <p class="lead" data-en="Master 2 Actuarial Science student at ISFA, I am looking for an internship in actuarial work and risk monitoring. My projects cover P&amp;C pricing, reserving, ALM and Solvency II. I want to contribute to results analysis, indicator monitoring and clear recommendations.">Étudiant en Master 2 Actuariat à l'ISFA, je recherche un stage en actuariat et suivi des risques. Mes projets portent sur la tarification IARD, le provisionnement, l'ALM et Solvabilité II. Je souhaite contribuer à l'analyse des résultats, au suivi des indicateurs et à la formulation de recommandations claires.</p>
   </section>
 
   <section class="cv" id="formation">
-    <h2>Formation</h2>
+    <h2 data-en="Education">Formation</h2>
     <div class="entry">
       <div>
         <h3>Institut de Science Financière et d'Assurances (ISFA) - Université Lyon 1</h3>
-        <p class="sub">Master 2 en Sciences Actuarielles</p>
-        <p class="note">Tarification, provisionnement, GLM, Solvabilité II, ALM et statistiques.</p>
+        <p class="sub" data-en="Master 2 in Actuarial Science">Master 2 en Sciences Actuarielles</p>
+        <p class="note" data-en="Pricing, reserving, GLM, Solvency II, ALM and statistics.">Tarification, provisionnement, GLM, Solvabilité II, ALM et statistiques.</p>
       </div>
-      <div class="meta">2024 - présent<br>Lyon, France</div>
+      <div class="meta" data-en="2024 - present<br>Lyon, France">2024 - présent<br>Lyon, France</div>
     </div>
     <div class="entry">
       <div>
         <h3>National Economics University</h3>
-        <p class="sub">Licence en Économie Mathématique</p>
-        <p class="note">GPA : 3,8/4,0 - Probabilités, économétrie et mathématiques financières.</p>
+        <p class="sub" data-en="Bachelor's degree in Mathematical Economics">Licence en Économie Mathématique</p>
+        <p class="note" data-en="GPA: 3.8/4.0 - Probability, econometrics and financial mathematics.">GPA : 3,8/4,0 - Probabilités, économétrie et mathématiques financières.</p>
       </div>
-      <div class="meta">2021 - 2023<br>Hanoï, Vietnam</div>
+      <div class="meta" data-en="2021 - 2023<br>Hanoi, Vietnam">2021 - 2023<br>Hanoï, Vietnam</div>
     </div>
   </section>
 
   <section class="cv" id="experiences">
-    <h2>Expériences professionnelles</h2>
+    <h2 data-en="Professional experience">Expériences professionnelles</h2>
     <div class="entry">
       <div>
         <h3><a class="ext" href="https://lissenne.com/">Lissenne</a></h3>
-        <p class="sub">Fondateur</p>
-        <p class="note">Plateforme d'apprentissage des langues</p>
+        <p class="sub" data-en="Founder">Fondateur</p>
+        <p class="note" data-en="Language-learning platform">Plateforme d'apprentissage des langues</p>
       </div>
-      <div class="meta">2026 - présent</div>
+      <div class="meta" data-en="2026 - present">2026 - présent</div>
       <ul>
-        <li>Suivi des indicateurs d'acquisition, d'activation et de conversion ; priorisation des évolutions produit.</li>
+        <li data-en="Tracking acquisition, activation and conversion metrics; prioritising product changes.">Suivi des indicateurs d'acquisition, d'activation et de conversion ; priorisation des évolutions produit.</li>
       </ul>
     </div>
     <div class="entry">
       <div>
         <h3>WorldQuant BRAIN</h3>
-        <p class="sub">Chercheur quantitatif</p>
-        <p class="note">Analyse statistique et validation de modèles</p>
+        <p class="sub" data-en="Quantitative researcher">Chercheur quantitatif</p>
+        <p class="note" data-en="Statistical analysis and model validation">Analyse statistique et validation de modèles</p>
       </div>
       <div class="meta">2022 - 2025</div>
       <ul>
-        <li>500+ signaux validés hors échantillon (Sharpe supérieur à 1,8) ; 1<sup>er</sup> au <a href="https://www.facebook.com/WorldQuantCareers/posts/worldquant-brains-2022-global-alphathon-is-complete-in-the-inaugural-quant-compe/2103386076520845/">Global Alphathon</a> (14&nbsp;000+ participants).</li>
-        <li>Pipeline Python automatisé : temps de recherche réduit de 90&nbsp;% et performance hors échantillon améliorée de 80&nbsp;%.</li>
+        <li data-en="500+ signals validated out-of-sample (Sharpe above 1.8); 1<sup>st</sup> at the <a href=&quot;https://www.facebook.com/WorldQuantCareers/posts/worldquant-brains-2022-global-alphathon-is-complete-in-the-inaugural-quant-compe/2103386076520845/&quot;>Global Alphathon</a> (14,000+ participants).">500+ signaux validés hors échantillon (Sharpe supérieur à 1,8) ; 1<sup>er</sup> au <a href="https://www.facebook.com/WorldQuantCareers/posts/worldquant-brains-2022-global-alphathon-is-complete-in-the-inaugural-quant-compe/2103386076520845/">Global Alphathon</a> (14&nbsp;000+ participants).</li>
+        <li data-en="Automated Python pipeline: research time cut by 90% and out-of-sample performance improved by 80%.">Pipeline Python automatisé : temps de recherche réduit de 90&nbsp;% et performance hors échantillon améliorée de 80&nbsp;%.</li>
       </ul>
     </div>
   </section>
 
   <section class="cv" id="projets">
-    <h2>Projets actuariels</h2>
+    <h2 data-en="Actuarial projects">Projets actuariels</h2>
     <div class="entry">
       <div>
-        <h3>ALM - Allocation stratégique d'un portefeuille de rentes</h3>
+        <h3 data-en="ALM - Strategic allocation of an annuity portfolio">ALM - Allocation stratégique d'un portefeuille de rentes</h3>
       </div>
       <div class="meta">2026</div>
       <ul>
-        <li>Allocation de 2&nbsp;000 rentes (100&nbsp;M€) selon le compromis rendement/SCR de Solvabilité II.</li>
-        <li>Projection des passifs et analyse du SCR de marché.</li>
+        <li data-en="Allocation of 2,000 annuities (€100M) based on the return/SCR trade-off under Solvency II.">Allocation de 2&nbsp;000 rentes (100&nbsp;M€) selon le compromis rendement/SCR de Solvabilité II.</li>
+        <li data-en="Liability projection and market SCR analysis.">Projection des passifs et analyse du SCR de marché.</li>
       </ul>
     </div>
     <div class="entry">
       <div>
-        <h3>Tarification de réassurance et pertes CAT</h3>
+        <h3 data-en="Reinsurance pricing and CAT losses">Tarification de réassurance et pertes CAT</h3>
       </div>
       <div class="meta">2026</div>
       <ul>
-        <li>Tarification XL/Stop-Loss ; modélisation EVT/Pareto des pertes de grêle et d'inondation.</li>
-        <li>100&nbsp;000 simulations Monte Carlo pour estimer les pertes et comparer RoRAC/RoE.</li>
+        <li data-en="XL/Stop-Loss pricing; EVT/Pareto modelling of hail and flood losses.">Tarification XL/Stop-Loss ; modélisation EVT/Pareto des pertes de grêle et d'inondation.</li>
+        <li data-en="100,000 Monte Carlo simulations to estimate losses and compare RoRAC/RoE.">100&nbsp;000 simulations Monte Carlo pour estimer les pertes et comparer RoRAC/RoE.</li>
       </ul>
     </div>
     <div class="entry">
       <div>
-        <h3>Tarification non-vie et provisionnement</h3>
+        <h3 data-en="Non-life pricing and reserving">Tarification non-vie et provisionnement</h3>
       </div>
       <div class="meta">2025</div>
       <ul>
-        <li>GLM fréquence-sévérité (Poisson, Gamma, Tweedie) pour des portefeuilles auto.</li>
-        <li>Chain-Ladder, Bornhuetter-Ferguson, Mack, ODP et Bootstrap pour mesurer l'incertitude des provisions.</li>
+        <li data-en="Frequency-severity GLMs (Poisson, Gamma, Tweedie) for motor portfolios.">GLM fréquence-sévérité (Poisson, Gamma, Tweedie) pour des portefeuilles auto.</li>
+        <li data-en="Chain-Ladder, Bornhuetter-Ferguson, Mack, ODP and Bootstrap to measure reserve uncertainty.">Chain-Ladder, Bornhuetter-Ferguson, Mack, ODP et Bootstrap pour mesurer l'incertitude des provisions.</li>
       </ul>
     </div>
   </section>
 
   <section class="cv" id="distinctions">
     <h2>Distinction</h2>
-    <p class="award"><strong><a class="ext" href="https://www.facebook.com/WorldQuantCareers/posts/worldquant-brains-2022-global-alphathon-is-complete-in-the-inaugural-quant-compe/2103386076520845/">1<sup>er</sup> mondial - WorldQuant Global Alphathon 2022</a></strong><span>14&nbsp;000+ participants - annonce officielle de WorldQuant</span></p>
+    <p class="award"><strong><a class="ext" href="https://www.facebook.com/WorldQuantCareers/posts/worldquant-brains-2022-global-alphathon-is-complete-in-the-inaugural-quant-compe/2103386076520845/" data-en="1<sup>st</sup> worldwide - WorldQuant Global Alphathon 2022">1<sup>er</sup> mondial - WorldQuant Global Alphathon 2022</a></strong><span data-en="14,000+ participants - official WorldQuant announcement">14&nbsp;000+ participants - annonce officielle de WorldQuant</span></p>
   </section>
 
   <section class="cv" id="competences">
-    <h2>Compétences</h2>
+    <h2 data-en="Skills">Compétences</h2>
     <div class="skills">
       <div class="skill-group">
-        <h3>Actuariat</h3>
-        <ul class="chips"><li>Tarification IARD</li><li>Provisionnement</li><li>ALM</li><li>SCR</li><li>Réassurance</li></ul>
+        <h3 data-en="Actuarial">Actuariat</h3>
+        <ul class="chips"><li data-en="P&amp;C pricing">Tarification IARD</li><li data-en="Reserving">Provisionnement</li><li>ALM</li><li>SCR</li><li data-en="Reinsurance">Réassurance</li></ul>
       </div>
       <div class="skill-group">
-        <h3>Analyse</h3>
-        <ul class="chips"><li>Rentabilité</li><li>Suivi d'indicateurs</li><li>Tableaux de bord</li><li>Recommandations</li></ul>
+        <h3 data-en="Analysis">Analyse</h3>
+        <ul class="chips"><li data-en="Profitability">Rentabilité</li><li data-en="Indicator monitoring">Suivi d'indicateurs</li><li data-en="Dashboards">Tableaux de bord</li><li data-en="Recommendations">Recommandations</li></ul>
       </div>
       <div class="skill-group">
-        <h3>Outils</h3>
+        <h3 data-en="Tools">Outils</h3>
         <ul class="chips"><li>Excel/VBA</li><li>Power BI</li><li>Python</li><li>R</li><li>SQL</li><li>PowerPoint</li></ul>
       </div>
       <div class="skill-group">
-        <h3>Langues</h3>
-        <ul class="chips"><li>Vietnamien - langue maternelle</li><li>Anglais - C1</li><li>Français - B2</li></ul>
+        <h3 data-en="Languages">Langues</h3>
+        <ul class="chips"><li data-en="Vietnamese - native">Vietnamien - langue maternelle</li><li data-en="English - C1">Anglais - C1</li><li data-en="French - B2">Français - B2</li></ul>
       </div>
       <div class="skill-group">
-        <h3>Atouts</h3>
-        <ul class="chips"><li>Rigueur</li><li>Autonomie</li><li>Esprit d'analyse</li><li>Travail en équipe</li></ul>
+        <h3 data-en="Strengths">Atouts</h3>
+        <ul class="chips"><li data-en="Rigour">Rigueur</li><li data-en="Autonomy">Autonomie</li><li data-en="Analytical mind">Esprit d'analyse</li><li data-en="Teamwork">Travail en équipe</li></ul>
       </div>
     </div>
   </section>
@@ -357,5 +370,6 @@ footer {
 <footer>© 2026 Nguyen Trinh</footer>
 
 <script src="assets/theme.js"></script>
+<script src="assets/lang.js"></script>
 </body>
 </html>
